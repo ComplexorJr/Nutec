@@ -22,13 +22,21 @@ export default defineConfig({
     outDir: 'dist',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
+      external: [],
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) return 'vendor.react';
-            return 'vendor';
-          }
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'ui-vendor': [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-tooltip', 
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-tabs'
+          ]
         },
+        globals: {
+          'react': 'React',
+          'react-dom': 'ReactDOM'
+        }
       },
     },
   },
