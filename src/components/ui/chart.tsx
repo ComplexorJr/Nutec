@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useId, useMemo, ReactNode, ComponentType, ComponentProps, CSSProperties } from "react";
+import React, { createContext, useContext, useId, useMemo, ReactNode, ComponentType, ComponentProps, CSSProperties } from "react";
 import * as RechartsPrimitive from "recharts";
 
 import { cn } from "./utils";
@@ -22,7 +22,7 @@ type ChartContextProps = {
   config: ChartConfig;
 };
 
-const ChartContext = createContext<ChartContextProps | null>(null);
+const ChartContext = React.createContext<ChartContextProps | null>(null);
 
 function useChart() {
   const context = useContext(ChartContext);
