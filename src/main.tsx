@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./MinimalApp.tsx";
+import App from "./SafeApp.tsx";
 import "./index.css";
 
 // Ensure React is globally available for all context providers
